@@ -1,3 +1,4 @@
+
 # DreamScape - Plateforme de voyage immersive
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/dreamscape)
@@ -10,10 +11,11 @@ DreamScape est une plateforme innovante de voyage combinant intelligence artific
 
 ## 🌟 Caractéristiques principales
 
-- **Recommandations IA**: Suggestions personnalisées de destinations, hébergements et activités
+- **Recommandations IA personnalisées**: Suggestions ultra-ciblées de destinations, hébergements et activités
 - **Expériences panoramiques immersives**: Prévisualisation 360° des destinations et points d'intérêt
 - **Navigation Globe-Panorama**: Passage fluide d'une vue globe terrestre aux panoramas détaillés
-- **Intégration Amadeus**: Accès à un catalogue mondial de vols, hébergements et activités
+- **Intégration Amadeus complète**: Accès à un catalogue mondial de vols, hébergements et activités
+- **Analyse contextuelle en temps réel**: Prise en compte de facteurs comme la météo et les événements locaux
 - **Architecture microservices**: Services autonomes, découplés et indépendamment déployables
 
 ## 🏗️ Architecture microservices
@@ -33,13 +35,13 @@ DreamScape est construit selon une véritable architecture microservices :
 | Service | Description | Technologies | Repo |
 |---------|-------------|--------------|------|
 | API Gateway | Point d'entrée unique, routage des requêtes | NGINX, Kong | [dreamscape-gateway](https://github.com/dreamscape/gateway) |
-| Auth Service | Authentification et autorisation | Node.js, JWT, OAuth | [dreamscape-auth](https://github.com/dreamscape/auth-service) |
-| User Service | Gestion des profils et préférences | Node.js, PostgreSQL | [dreamscape-user](https://github.com/dreamscape/user-service) |
-| Voyage Service | Intégration Amadeus, réservations | Node.js, MongoDB | [dreamscape-voyage](https://github.com/dreamscape/voyage-service) |
-| AI Service | Recommandations personnalisées | Python, TensorFlow | [dreamscape-ai](https://github.com/dreamscape/ai-service) |
+| Auth Service | Authentification et autorisation | Node.js, JWT, OAuth2 | [dreamscape-auth](https://github.com/dreamscape/auth-service) |
+| User Service | Gestion des profils et préférences | Node.js, Express, PostgreSQL | [dreamscape-user](https://github.com/dreamscape/user-service) |
+| Voyage Service | Intégration Amadeus, réservations | Node.js, Express, MongoDB | [dreamscape-voyage](https://github.com/dreamscape/voyage-service) |
+| AI Service | Recommandations personnalisées | Node.js/Python, TensorFlow.js | [dreamscape-ai](https://github.com/dreamscape/ai-service) |
 | Panorama Service | Gestion des expériences panoramiques | Node.js, Marzipano, CesiumJS | [dreamscape-panorama](https://github.com/dreamscape/panorama-service) |
-| Payment Service | Intégration Stripe, transactions | Node.js, PostgreSQL | [dreamscape-payment](https://github.com/dreamscape/payment-service) |
-| Frontend | Interface utilisateur web | React, Redux | [dreamscape-web](https://github.com/dreamscape/web-client) |
+| Payment Service | Intégration Stripe, transactions | Node.js, Express, PostgreSQL | [dreamscape-payment](https://github.com/dreamscape/payment-service) |
+| Frontend | Interface utilisateur web | React, Redux Toolkit, TailwindCSS | [dreamscape-web](https://github.com/dreamscape/web-client) |
 
 ### Communication inter-services
 
@@ -116,6 +118,11 @@ dreamscape/
 │   ├── api-standards/      # Standards d'API et validateurs
 │   └── observability/      # Outils de logging et monitoring
 │
+├── tests/                  # Tests d'intégration inter-services
+│   ├── e2e/                # Tests end-to-end
+│   ├── performance/        # Tests de charge et performance
+│   └── contract/           # Tests de contrat d'API
+│
 └── documentation/          # Documentation centralisée
     ├── architecture/       # Documentation d'architecture
     ├── api/                # Documentation API (OpenAPI)
@@ -134,12 +141,24 @@ Notre approche pour les expériences immersives combine:
   - KartaView/Mapillary (API gratuite)
   - Photos panoramiques propres (sous licence libre)
 
-Cette approche hybride permet une expérience immersive de qualité tout en respectant nos contraintes budgétaires et techniques.
+Cette approche hybride permet une expérience immersive de qualité tout en respectant nos contraintes budgétaires et techniques. Elle offre aux utilisateurs une prévisualisation des destinations avant leur voyage, réduisant ainsi l'incertitude et augmentant le taux de conversion des réservations.
+
+## 🧠 Intelligence artificielle
+
+Notre système de recommandation utilise une approche hybride:
+
+- **Filtrage collaboratif**: Recommandations basées sur les comportements similaires entre utilisateurs
+- **Filtrage basé sur le contenu**: Analyse des caractéristiques intrinsèques des destinations et activités
+- **Neural Collaborative Filtering**: Modèle avancé combinant deep learning et filtrage collaboratif
+- **Analyse contextuelle**: Prise en compte des facteurs comme la météo, les événements locaux et la saisonnalité
+
+Ces algorithmes s'adaptent en temps réel pour fournir des recommandations personnalisées exceptionnelles.
 
 ## ⚙️ Modèle de développement
 
 - **Approche agile**: Sprints de 4 semaines (8 jours de travail effectif)
 - **Rythme de développement**: 2 jours de travail par semaine
+- **Phasage**: Documentation (Janvier-Juin 2025) → MVP (Juin 2025-Avril 2026)
 - **Livraison continue**: Chaque service suit son propre cycle de CI/CD
 - **Feature Flags**: Activation progressive des fonctionnalités
 
@@ -150,23 +169,25 @@ Cette approche hybride permet une expérience immersive de qualité tout en resp
 - **Branches**: Nommage `feature/nom-feature`, `bugfix/description-bug`, `release/x.y.z`
 - **Documentation**: JSDoc pour les fonctions et composants principaux
 - **Internationalisation**: Utilisez les clés i18n pour tous les textes visibles
+- **Accessibilité**: Conformité WCAG 2.1 niveau AA
 
 ## 🧪 Stratégie de test
 
-- **Tests unitaires**: Par service, dans leurs repositories respectifs
+- **Tests unitaires**: Jest pour le backend, React Testing Library pour le frontend
 - **Tests d'intégration**: Tests entre services via environnement d'intégration dédié
 - **Tests contract**: Vérification des contrats d'API entre services (Pact)
-- **Tests end-to-end**: Parcours utilisateur complets sur un environnement de staging
+- **Tests end-to-end**: Cypress pour les parcours utilisateur complets
 - **Tests d'accessibilité**: Axe pour la conformité WCAG niveau AA
+- **Tests de performance**: k6 + Lighthouse
 
 ## 🛡️ Sécurité et observabilité
 
 - **Centralisation des logs**: ELK Stack pour agrégation des logs de tous les services
 - **Distributed Tracing**: Jaeger pour suivre les requêtes à travers les services
 - **Métriques**: Prometheus/Grafana pour monitoring en temps réel
-- **Alerting**: Alertmanager avec intégration Slack/PagerDuty
+- **Alerting**: Alertmanager avec intégration Slack
 - **RGPD**: Mécanismes de consentement, gestion des données personnelles
-- **Accessibilité**: Conformité WCAG 2.1 niveau AA
+- **Sécurité web**: Protection Cloudflare, WAF, HTTPS obligatoire
 - **Multilingue**: Support français/anglais avec structure extensible
 
 ## 🔄 Workflow d'intégration
@@ -179,10 +200,22 @@ Cette approche hybride permet une expérience immersive de qualité tout en resp
 6. Tests d'intégration entre services
 7. Promotion vers l'environnement de staging puis production
 
+## ☁️ Infrastructure cloud
+
+- **Oracle Cloud Infrastructure**: Utilisation du Free Tier pour le MVP
+  - 4 instances ARM Ampere A1 (24 GB RAM total)
+  - 200 GB de stockage bloc
+- **Cloudflare**:
+  - Pages pour l'hébergement frontend
+  - CDN pour la distribution globale des assets
+  - R2 pour le stockage des panoramas et médias
+- **Kubernetes (K3s)**: Version légère adaptée aux ressources limitées
+- **Kafka Lite**: Version légère pour la communication événementielle
+
 ## 📅 Feuille de route
 
 ### MVP (Juin 2025 - Avril 2026)
-- **Infrastructure**: Oracle Cloud, Cloudflare CDN, Kafka Lite
+- **Infrastructure**: Oracle Cloud, Cloudflare, Kafka Lite
 - **Core**: Authentification, profils, préférences
 - **Voyage**: Intégration Amadeus (vols, hébergements, activités)
 - **IA**: Recommandations personnalisées, analyse contextuelle
@@ -206,7 +239,7 @@ Cette approche hybride permet une expérience immersive de qualité tout en resp
 - **Amadeus API**: Vols, hébergements, activités
 - **Stripe**: Traitement des paiements
 - **Cloudflare**: CDN, Pages, R2 Storage
-- **OpenMeteo API**: Données météorologiques pour l'analyse contextuelle
+- **Open-Meteo API**: Données météorologiques pour l'analyse contextuelle
 - **KartaView/Mapillary**: Panoramas 360° des zones urbaines
 - **Wikimedia Commons**: Panoramas sous licence libre
 
@@ -214,6 +247,8 @@ Cette approche hybride permet une expérience immersive de qualité tout en resp
 
 Chaque service maintient sa propre documentation technique dans son repository.
 La documentation centralisée et les guides d'architecture sont disponibles dans le repository [dreamscape-docs](https://github.com/dreamscape/documentation).
+
+Le guide d'onboarding complet pour les nouveaux développeurs est disponible à [documentation/guidelines/onboarding.md](https://github.com/dreamscape/documentation/blob/main/guidelines/onboarding.md).
 
 ## 👥 Équipe et contribution
 
