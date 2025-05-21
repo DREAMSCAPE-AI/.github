@@ -246,7 +246,7 @@ Ces algorithmes s'adaptent en temps réel pour fournir des recommandations perso
 ## 📚 Documentation
 
 Chaque service maintient sa propre documentation technique dans son repository.
-La documentation centralisée et les guides d'architecture sont disponibles dans le repository [dreamscape-docs](https://github.com/dreamscape/documentation).
+La documentation centralisée et les guides d'architecture sont disponibles dans le repository [dreamscape-docs](https://github.com/DREAMSCAPE-AI/dreamscape-documentation).
 
 Le guide d'onboarding complet pour les nouveaux développeurs est disponible à [documentation/guidelines/onboarding.md](https://github.com/dreamscape/documentation/blob/main/guidelines/onboarding.md).
 
