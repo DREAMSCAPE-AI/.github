@@ -35,13 +35,13 @@ DreamScape est construit selon une véritable architecture microservices :
 | Service | Description | Technologies | Repo |
 |---------|-------------|--------------|------|
 | API Gateway | Point d'entrée unique, routage des requêtes | NGINX | [dreamscape-gateway](https://github.com/DREAMSCAPE-AI/dreamscape-gateway) |
-| Auth Service | Authentification et autorisation | Node.js, JWT, OAuth2 | [dreamscape-auth](https://github.com/dreamscape/auth-service) |
-| User Service | Gestion des profils et préférences | Node.js, Express, PostgreSQL | [dreamscape-user](https://github.com/dreamscape/user-service) |
-| Voyage Service | Intégration Amadeus, réservations | Node.js, Express, MongoDB | [dreamscape-voyage](https://github.com/dreamscape/voyage-service) |
-| AI Service | Recommandations personnalisées | Node.js/Python, TensorFlow.js | [dreamscape-ai](https://github.com/dreamscape/ai-service) |
-| Panorama Service | Gestion des expériences panoramiques | Node.js, Marzipano, CesiumJS | [dreamscape-panorama](https://github.com/dreamscape/panorama-service) |
-| Payment Service | Intégration Stripe, transactions | Node.js, Express, PostgreSQL | [dreamscape-payment](https://github.com/dreamscape/payment-service) |
-| Frontend | Interface utilisateur web | React, Redux Toolkit, TailwindCSS | [dreamscape-web](https://github.com/dreamscape/web-client) |
+| Auth Service | Authentification et autorisation | Node.js, JWT, OAuth2 | [dreamscape-auth](https://github.com/DREAMSCAPE-AI/auth-service) |
+| User Service | Gestion des profils et préférences | Node.js, Express, PostgreSQL | [dreamscape-user](https://github.com/DREAMSCAPE-AI/user-service) |
+| Voyage Service | Intégration Amadeus, réservations | Node.js, Express, MongoDB | [dreamscape-voyage](https://github.com/DREAMSCAPE-AI/voyage-service) |
+| AI Service | Recommandations personnalisées | Node.js/Python, TensorFlow.js | [dreamscape-ai](https://github.com/DREAMSCAPE-AI/ai-service) |
+| Panorama Service | Gestion des expériences panoramiques | Node.js, Marzipano, CesiumJS | [dreamscape-panorama](https://github.com/DREAMSCAPE-AI/panorama-service) |
+| Payment Service | Intégration Stripe, transactions | Node.js, Express, PostgreSQL | [dreamscape-payment](https://github.com/DREAMSCAPE-AI/payment-service) |
+| Frontend | Interface utilisateur web | React, Redux Toolkit, TailwindCSS | [dreamscape-web](https://github.com/DREAMSCAPE-AI/web-client) |
 
 ### Communication inter-services
 
