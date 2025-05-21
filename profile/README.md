@@ -34,7 +34,7 @@ DreamScape est construit selon une véritable architecture microservices :
 
 | Service | Description | Technologies | Repo |
 |---------|-------------|--------------|------|
-| API Gateway | Point d'entrée unique, routage des requêtes | NGINX | [dreamscape-gateway](https://github.com/dreamscape/gateway) |
+| API Gateway | Point d'entrée unique, routage des requêtes | NGINX | [dreamscape-gateway]([https://github.com/dreamscape/gateway](https://github.com/DREAMSCAPE-AI/dreamscape-gateway)) |
 | Auth Service | Authentification et autorisation | Node.js, JWT, OAuth2 | [dreamscape-auth](https://github.com/dreamscape/auth-service) |
 | User Service | Gestion des profils et préférences | Node.js, Express, PostgreSQL | [dreamscape-user](https://github.com/dreamscape/user-service) |
 | Voyage Service | Intégration Amadeus, réservations | Node.js, Express, MongoDB | [dreamscape-voyage](https://github.com/dreamscape/voyage-service) |
